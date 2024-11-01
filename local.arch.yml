@@ -17,9 +17,9 @@
       - import_tasks: ./tasks/ocaml.yml
 
       - import_tasks: ./tasks/arch/packages.yml
-      - import_tasks: ./tasks/arch/browser.yml
-      - import_tasks: ./tasks/arch/scripts.yml
+      - import_tasks: ./tasks/hyprland/packages.yml
 
+      - import_tasks: ./tasks/arch/browser.yml
       - import_tasks: ./tasks/hyprland/hyprland.yml
       - import_tasks: ./tasks/hyprland/ags.yml
       - import_tasks: ./tasks/hyprland/anyrun.yml
@@ -35,6 +35,8 @@
       - import_tasks: ./tasks/neovim.yml
       - import_tasks: ./tasks/git.yml
       - import_tasks: ./tasks/zsh.yml
+
+      - import_tasks: ./tasks/arch/scripts.yml
 
       - import_tasks: ./tasks/setting.yml
       - import_tasks: ./tasks/hyprland/setting.yml

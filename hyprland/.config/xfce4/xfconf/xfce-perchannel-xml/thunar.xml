@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <channel name="thunar" version="1.0">
-  <property name="last-show-hidden" type="bool" value="false"/>
+  <property name="last-show-hidden" type="bool" value="true"/>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
   <property name="last-view" type="string" value="ThunarDetailsView"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_100_PERCENT"/>
@@ -26,7 +26,7 @@
   <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
   <property name="last-restore-tabs" type="bool" value="true"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///home/akbarsanihasan/Downloads/Compressed"/>
+    <value type="string" value="file:///media/External/Pictures"/>
   </property>
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>

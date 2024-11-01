@@ -1,17 +1,21 @@
 * {
+    font-weight: 800;
+    border-width: 0;
+}
+
+window {
     min-height: 0;
     font-family:
         JetBrainsMono NFP Medium,
         Monospace;
     font-size: $font-size;
-    font-weight: Bold;
     border: none;
     border-radius: 0px;
     box-shadow: unset;
     background-image: unset;
     background-color: transparent;
     text-shadow: unset;
-    color: $text;
+    color: $lavender;
 }
 
 button {
@@ -31,4 +35,12 @@ button {
         box-shadow: unset;
         background-image: unset;
     }
+}
+
+menu * {
+    font-weight: 400;
+}
+
+tooltip * {
+    font-weight: 400;
 }

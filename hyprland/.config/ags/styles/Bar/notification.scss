@@ -1,0 +1,24 @@
+.notification-toggle {
+    background-color: $charcoal;
+    border-radius: $bar-inner-height;
+    min-height: $bar-inner-height;
+    padding: $bar-padding $gap-xs;
+
+    label {
+        color: $lavender;
+        min-width: $bar-inner-height;
+        min-height: $bar-inner-height;
+        border-radius: $bar-inner-height;
+
+        &.icon {
+            font-size: calc($font-size/1.1);
+        }
+    }
+
+    &:hover {
+        background-color: $mauve;
+        label {
+            color: $crust;
+        }
+    }
+}

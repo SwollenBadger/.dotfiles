@@ -1,0 +1,19 @@
+.datetime {
+    @include Button;
+
+    .separator {
+        margin: 0 $gap;
+        font-size: calc($font-size/1.5);
+        color: rgba($lavender, 0.8);
+    }
+
+    .date {
+        font-style: italic;
+    }
+
+    &:hover {
+        .date {
+            font-style: normal;
+        }
+    }
+}

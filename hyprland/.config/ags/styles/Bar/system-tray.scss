@@ -1,0 +1,26 @@
+.tray-toggle {
+    background-color: $charcoal;
+    border-radius: $bar-inner-height;
+    min-height: $bar-inner-height;
+    padding: $bar-padding;
+
+    .toggle,
+    .item {
+        min-height: $bar-inner-height;
+        min-width: $bar-inner-height;
+        border-radius: $bar-inner-height;
+        color: $lavender;
+    }
+
+    .toggle {
+        background-color: $surface1;
+        &:hover {
+            background-color: $mauve;
+            color: $crust;
+        }
+    }
+
+    .item {
+        margin-left: $bar-padding;
+    }
+}

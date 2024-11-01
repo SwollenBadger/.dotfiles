@@ -6,7 +6,8 @@ install --ask-become --skip personal
 
 ### TODO
 
--   [ ] add hyprland bar (astal/ags)
+-   [x] add hyprland bar (astal/ags)
+    -   [ ] Add popup window
 -   [ ] build hyprland manual
 -   [ ] hyprland on ubuntu maybe
 

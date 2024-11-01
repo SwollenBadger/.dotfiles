@@ -1,10 +1,27 @@
-@mixin window($bg-color: $crust, $box-shadow: $shadow) {
-    padding: $gap-xs;
-    margin: $gap-xs;
+@mixin Window($bg-color: $crust, $box-shadow: $shadow) {
+    padding: $gap-s;
+    margin: 0 $gap-xs $gap-xs $gap-xs;
     background-color: $bg-color;
     box-shadow: $box-shadow;
     border-radius: $radius-s;
     border-width: 0.1rem;
     border-style: solid;
     border-color: $charcoal;
+}
+
+@mixin Button($color: $lavender, $hover-bg: $charcoal) {
+    padding: 0 $gap-s;
+    border-radius: $radius;
+    border-width: 0.1em;
+    border-style: solid;
+    border-color: transparent;
+
+    label {
+        color: $color;
+    }
+
+    &:hover,
+    &.active {
+        background-color: $hover-bg;
+    }
 }

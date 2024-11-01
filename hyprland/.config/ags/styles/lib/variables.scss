@@ -1,16 +1,38 @@
 @import './styles/lib/colors.scss';
 
-$font-size: 0.95rem;
-
-$gap-xs: 0.4rem;
-$gap-s: 0.6rem;
-$gap-m: 0.8rem;
-$gap: 1rem;
-$gap-l: 1.2rem;
-$gap-xl: 1.4rem;
+$font-size: 1rem;
+$gap-xs: 0.4em;
+$gap-s: 0.6em;
+$gap-m: 0.8em;
+$gap: 1em;
+$gap-l: 1.2em;
+$gap-xl: 1.4em;
 
 $radius-s: 0.2em;
 $radius: 0.5em;
-$radius-l: 0.8em;
+$radius: 0.7em;
+$radius-l: 0.9em;
 
-$shadow: 0px 0px calc($gap-xs / 2) calc($gap-xs / 2) rgba(#000000, 0.6);
+$bar-height: 1.8em;
+
+$shadow: 0px 0px calc($gap-xs / 2) calc($gap-xs / 3) rgba(#000000, 0.6);
+
+@keyframes warning {
+    from {
+        color: rgba($color: $yellow, $alpha: 0.5);
+    }
+
+    to {
+        color: rgba($color: $yellow, $alpha: 1);
+    }
+}
+
+@keyframes critical {
+    from {
+        color: rgba($color: $red, $alpha: 0.5);
+    }
+
+    to {
+        color: rgba($color: $red, $alpha: 1);
+    }
+}

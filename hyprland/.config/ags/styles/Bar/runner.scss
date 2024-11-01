@@ -1,0 +1,6 @@
+.runner {
+    @include Button;
+    padding: 0 calc($gap-xs / 2);
+    min-width: $bar-height;
+    min-height: $bar-height;
+}

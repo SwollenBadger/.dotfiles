@@ -59,6 +59,14 @@
       meson setup --reconfigure --prefix /usr build
       meson install -C build
 
+      cd {{ HOME }}/astal/lib/notifd
+      meson setup --reconfigure --prefix /usr build
+      meson install -C build
+
+      cd {{ HOME }}/astal/lib/wireplumber
+      meson setup --reconfigure --prefix /usr build
+      meson install -C build
+
       cd {{ HOME }}/astal/lib/tray
       meson setup --reconfigure --prefix /usr build
       meson install -C build

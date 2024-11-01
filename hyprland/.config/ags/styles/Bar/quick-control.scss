@@ -1,0 +1,25 @@
+.quick-control {
+    @include Button;
+
+    label {
+        &.low {
+            color: rgba($lavender, 0.6);
+        }
+        &.medium {
+            color: rgba($lavender, 0.8);
+        }
+        &.high {
+            color: rgba($lavender, 1);
+        }
+        &.warning {
+            color: $yellow;
+        }
+        &.overamplified {
+            color: $red;
+        }
+    }
+
+    label:nth-child(2) {
+        margin: calc($gap-m / 2);
+    }
+}

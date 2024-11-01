@@ -1,27 +1,30 @@
-- name: Installing tlp using pacman
+- name: Installing tlp using pacman linux
   become: true
   community.general.pacman:
       update_cache: true
       state: 'latest'
-      name: tlp
+      name:
+          - tlp
+          - tp_smapi
   tags:
       - hyprland
 
 - name: Setting tlp
   become: true
-  ini_file:
+  community.general.ini_file:
       path: '/etc/tlp.conf'
       create: 'yes'
       option: '{{ item.option }}'
       value: '{{ item.value }}'
+      no_extra_spaces: true
   loop:
-      - {option: 'INTEL_GPU_MIN_FREQ_ON_AC', value: '300'}
-      - {option: 'INTEL_GPU_MIN_FREQ_ON_BAT', value: '300'}
-      - {option: 'START_CHARGE_THRESH_BAT1', value: '75'}
-      - {option: 'STOP_CHARGE_THRESH_BAT1', value: '80'}
-      - {option: 'START_CHARGE_THRESH_BAT0', value: '75'}
-      - {option: 'STOP_CHARGE_THRESH_BAT0', value: '80'}
-      - {option: 'RESTORE_THRESHOLDS_ON_BAT', value: '1'}
+      - {option: 'INTEL_GPU_MIN_FREQ_ON_AC', value: 500}
+      - {option: 'INTEL_GPU_MIN_FREQ_ON_BAT', value: 500}
+      - {option: 'START_CHARGE_THRESH_BAT0', value: 75}
+      - {option: 'STOP_CHARGE_THRESH_BAT0', value: 80}
+      - {option: 'START_CHARGE_THRESH_BAT1', value: 75}
+      - {option: 'STOP_CHARGE_THRESH_BAT1', value: 80}
+      - {option: 'RESTORE_THRESHOLDS_ON_BAT', value: 1}
   tags:
       - hyprland
 
