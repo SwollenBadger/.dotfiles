@@ -49,10 +49,10 @@ function setup_ubuntu(){
 }
 
 function setup_mac(){
-    sudo -v
     pmset noidle &
 
     if ! command -v brew > /dev/null 2>&1; then
+        sudo -v
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     fi
 

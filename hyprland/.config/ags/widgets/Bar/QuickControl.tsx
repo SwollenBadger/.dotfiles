@@ -147,8 +147,8 @@ const QuickControl = () => {
         <ToggleButton className="quick-control">
             <box>
                 <Network />
-                <Speaker />
                 <Microphone />
+                <Speaker />
             </box>
         </ToggleButton>
     )

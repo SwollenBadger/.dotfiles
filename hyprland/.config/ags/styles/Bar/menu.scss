@@ -1,7 +1,6 @@
 .menu-button {
     @include Button;
     margin-right: $gap-xs;
-    min-height: $bar-height;
 
     label {
         font-size: calc($font-size * 1.25);

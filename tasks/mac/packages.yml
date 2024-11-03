@@ -19,7 +19,7 @@
       install_options:
           - build-from-source
       name:
-          - stolendata-mpv
+          - mpv
           - kitty
           - caffeine
           - whoozle-android-file-transfer
