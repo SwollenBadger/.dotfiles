@@ -4,12 +4,7 @@ const HyprlandService = AstalHyprland.get_default()
 
 const WindowTitle = () => {
     return (
-        <box
-            className="window-title"
-            visible={bind(HyprlandService, 'focusedClient').as(
-                (focused_client) => focused_client !== null,
-            )}
-        >
+        <box className="window-title">
             <label className="icon" label="" />
             <label
                 className="title"

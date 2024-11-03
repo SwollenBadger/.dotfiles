@@ -16,6 +16,7 @@ $radius-l: 0.9em;
 $bar-height: 1.8em;
 
 $shadow: 0px 0px calc($gap-xs / 2) calc($gap-xs / 3) rgba(#000000, 0.6);
+$primary: $lavender;
 
 @keyframes warning {
     from {

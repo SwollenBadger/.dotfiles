@@ -3,13 +3,13 @@
 
     label {
         &.low {
-            color: rgba($lavender, 0.6);
+            color: rgba($primary, 0.6);
         }
         &.medium {
-            color: rgba($lavender, 0.8);
+            color: rgba($primary, 0.8);
         }
         &.high {
-            color: rgba($lavender, 1);
+            color: rgba($primary, 1);
         }
         &.warning {
             color: $yellow;

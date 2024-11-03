@@ -13,15 +13,15 @@ export const networkIcons: {
     wireless: {[key: string | number]: string}
 } = {
     disconnected: '󰅛',
-    wired: '',
+    wired: '󰈀',
     wireless: {
         disconnected: '󰤭',
         connecting: '󰤩',
         5: '󰤯',
-        15: '󰤟',
-        25: '󰤢',
-        50: '󰤥',
-        75: '󰤨',
+        35: '󰤟',
+        55: '󰤢',
+        75: '󰤥',
+        95: '󰤨',
     },
 }
 

@@ -1,6 +1,12 @@
 - name: Change defaults mac
   community.general.osx_defaults: '{{ item }}'
   loop:
+      - domain: 'com.apple.WindowManager'
+        key: 'EnableStandardClickToShowDesktop'
+        type: 'boolean'
+        value: false
+        state: 'present'
+
       - domain: 'com.apple.loginwindow'
         key: 'TALLogoutSavesState'
         type: 'boolean'
@@ -220,3 +226,4 @@
 
       killall Dock
       killall Finder
+      killall WindowManager

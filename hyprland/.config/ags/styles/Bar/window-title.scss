@@ -2,12 +2,13 @@
     .icon {
         font-weight: 600;
         border-radius: 50%;
-        color: rgba($lavender, 0.5);
-        margin-right: $gap;
+        color: rgba($primary, 0.5);
+        margin-right: $gap-m;
     }
 
     .title {
         font-size: calc($font-size/1.1);
-        color: rgba($lavender, 0.8);
+        color: rgba($primary, 0.5);
+        font-style: italic;
     }
 }

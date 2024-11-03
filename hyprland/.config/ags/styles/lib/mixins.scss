@@ -9,7 +9,7 @@
     border-color: $charcoal;
 }
 
-@mixin Button($color: $lavender, $hover-bg: $charcoal) {
+@mixin Button($color: $primary, $hover-bg: $charcoal) {
     padding: 0 $gap-s;
     border-radius: $radius;
     border-width: 0.1em;

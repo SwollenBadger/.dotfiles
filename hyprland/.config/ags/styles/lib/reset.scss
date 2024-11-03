@@ -1,6 +1,7 @@
 * {
     font-weight: 800;
     border-width: 0;
+    color: $primary;
 }
 
 window {
@@ -15,7 +16,6 @@ window {
     background-image: unset;
     background-color: transparent;
     text-shadow: unset;
-    color: $lavender;
 }
 
 button {
@@ -39,6 +39,7 @@ button {
 
 menu * {
     font-weight: 400;
+    color: $text;
 }
 
 tooltip * {

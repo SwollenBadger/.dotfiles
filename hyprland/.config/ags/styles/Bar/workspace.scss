@@ -3,27 +3,36 @@
     background-color: $charcoal;
     border-radius: $bar-inner-height;
     min-height: $bar-inner-height;
-    padding: $bar-padding;
+    padding: $bar-padding * 1.2;
 
     .item {
         min-width: $bar-inner-height;
         min-height: $bar-inner-height;
         border-radius: $bar-inner-height;
-        color: rgba($lavender, 0.5);
         font-weight: 600;
 
+        label {
+            color: rgba($primary, 0.5);
+        }
+
         &.occupied {
-            color: $lavender;
+            label {
+                color: $primary;
+            }
         }
 
         &.focused {
             background-image: linear-gradient(90deg, $lavender, $mauve);
-            color: $crust;
+            label {
+                color: $crust;
+            }
         }
 
         &:hover {
             background-image: linear-gradient(90deg, $lavender, $mauve);
-            color: $crust;
+            label {
+                color: $crust;
+            }
         }
     }
 }

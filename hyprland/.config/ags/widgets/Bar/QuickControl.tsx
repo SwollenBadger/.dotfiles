@@ -47,16 +47,17 @@ const Network = () => {
 
             return {
                 label,
+                wifiStrength: wifi_strength,
             }
         },
     )
 
     return (
         <label
-            className="network"
             setup={(self) => {
                 self.label = networkInfo.get().label
                 self.hook(networkInfo, (self, network) => {
+                    console.log(network.wifiStrength)
                     self.label = network.label
                 })
             }}

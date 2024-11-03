@@ -14,11 +14,11 @@ const Notification = () => {
                 <label label="󰂚" className="icon" />
                 <label
                     className="count"
-                    label={notifications.as((notifications) =>
-                        notifications.length > 9
+                    label={notifications.as((notifications) => {
+                        return notifications.length > 9
                             ? '9+'
-                            : notifications.length.toString(),
-                    )}
+                            : notifications.length.toString()
+                    })}
                 />
             </box>
         </ToggleButton>
