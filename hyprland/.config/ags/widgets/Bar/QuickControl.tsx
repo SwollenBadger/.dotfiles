@@ -7,8 +7,11 @@ import {nearest} from '../../lib/helpers'
 import {microphoneIcons, networkIcons, speakerIcons} from '../../lib/Variables'
 
 const NetworkService = AstalNetwork.get_default()
-const SpeakerService = AstalWp.get_default()?.audio.defaultSpeaker!
-const MicrophoneService = AstalWp.get_default()?.audio.defaultMicrophone!
+const WifiService = NetworkService.wifi
+const WiredService = NetworkService.wired
+
+const SpeakerService = AstalWp.get_default()?.audio.defaultSpeaker
+const MicrophoneService = AstalWp.get_default()?.audio.defaultMicrophone
 
 function getWifiIcons(wifiStrength: number, wifiState: number): string {
     const networkIconsKeys = Object.keys(networkIcons.wireless)
@@ -44,44 +47,40 @@ function getVolumeClass(volume: number): string {
     return volumeLevel[volumeKey]
 }
 
-const Network = () => {
-    const networkPrimary = bind(NetworkService, 'primary')
-
-    const wifiStrength = bind(NetworkService.wifi, 'strength')
-    const wifiState = bind(NetworkService.wifi.device, 'state')
-
-    const networkInfo = Variable.derive(
-        [networkPrimary, wifiStrength, wifiState],
-        (network_primary, wifi_strength, wifi_state) => {
-            let label =
-                network_primary === AstalNetwork.Primary.WIFI
-                    ? getWifiIcons(wifi_strength, wifi_state / 10)
-                    : networkIcons.wired
-
-            if (network_primary < 1) {
-                label = networkIcons.disconnected
-            }
-
-            return {
-                label,
-                wifiStrength: wifi_strength,
-            }
-        },
-    )
+const Wifi = () => {
+    const wifiStrength = bind(WifiService, 'strength')
+    const wifiState = bind(WifiService.device, 'state')
 
     return (
         <label
-            setup={(self) => {
-                self.label = networkInfo.get().label
-                self.hook(networkInfo, (self, network) => {
-                    self.label = network.label
-                })
-            }}
+            label={bind(
+                Variable.derive(
+                    [wifiStrength, wifiState],
+                    (wifi_strength, wifi_state) =>
+                        getWifiIcons(wifi_strength, wifi_state / 10),
+                ),
+            )}
+        />
+    )
+}
+
+const Wired = () => {
+    return (
+        <label
+            label={bind(WiredService.device, 'state').as((wired_state) => {
+                return wired_state / 10 <= AstalNetwork.DeviceState.UNAVAILABLE
+                    ? networkIcons.disconnected
+                    : networkIcons.wired
+            })}
         />
     )
 }
 
 const Microphone = () => {
+    if (!MicrophoneService) {
+        return <label label={microphoneIcons.muted} />
+    }
+
     const microphoneVolume = bind(MicrophoneService, 'volume').as((volume) =>
         Math.round(volume * 100),
     )
@@ -113,6 +112,10 @@ const Microphone = () => {
 }
 
 const Speaker = () => {
+    if (!SpeakerService) {
+        return <label label={microphoneIcons.muted} />
+    }
+
     const speakerVolume = bind(SpeakerService, 'volume').as((volume) =>
         Math.round(volume * 100),
     )
@@ -147,7 +150,17 @@ const QuickControl = () => {
     return (
         <ToggleButton className="quick-control">
             <box>
-                <Network />
+                {!WifiService ? (
+                    <Wired />
+                ) : (
+                    bind(NetworkService, 'primary').as((primary_network) =>
+                        primary_network !== AstalNetwork.Primary.WIFI ? (
+                            <Wired />
+                        ) : (
+                            <Wifi />
+                        ),
+                    )
+                )}
                 <Microphone />
                 <Speaker />
             </box>

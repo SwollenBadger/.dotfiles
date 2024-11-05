@@ -12,7 +12,7 @@ export const networkIcons: {
     wired: string
     wireless: {[key: string | number]: string}
 } = {
-    disconnected: '󰅛',
+    disconnected: '󰲛',
     wired: '󰈀',
     wireless: {
         disconnected: '󰤭',
