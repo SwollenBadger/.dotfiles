@@ -8,6 +8,8 @@
           - gtk3
           - gtk-layer-shell
           - gobject-introspection
+          - libdbusmenu-gtk3
+          - json-glib
           - gjs
           - dart-sass
   tags:

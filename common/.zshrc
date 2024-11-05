@@ -125,8 +125,3 @@ export PATH=$HOME/$GOTPATH/bin:$PATH
 #--------- StartRust ---------#
 [[ -r "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env" > /dev/null 2> /dev/null || true
 #--------- EndRust ---------#
-
-#--------- StartOcaml ---------#
-eval $(opam env)
-[[ -r "$HOME/.opam/opam-init/init.sh" ]] && . "$HOME/.opam/opam-init/init.sh" > /dev/null 2> /dev/null || true
-#--------- EndOcaml ---------#

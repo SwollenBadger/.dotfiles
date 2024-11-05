@@ -16,10 +16,8 @@
 - name: Installing common app
   community.general.homebrew:
       state: 'latest'
-      install_options:
-          - build-from-source
       name:
-          - mpv
+          - stolendata-mpv
           - kitty
           - caffeine
           - whoozle-android-file-transfer
