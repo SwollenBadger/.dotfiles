@@ -13,7 +13,6 @@
       - import_tasks: ./tasks/php.yml
       - import_tasks: ./tasks/go.yml
       - import_tasks: ./tasks/rust.yml
-      - import_tasks: ./tasks/ocaml.yml
 
       - import_tasks: ./tasks/mac/packages.yml
       - import_tasks: ./tasks/mac/browser.yml
