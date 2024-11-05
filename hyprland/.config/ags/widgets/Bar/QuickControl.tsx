@@ -27,6 +27,23 @@ function getWifiIcons(wifiStrength: number, wifiState: number): string {
     return networkIcons.wireless[networkIconKey]
 }
 
+function getVolumeClass(volume: number): string {
+    const volumeLevel: {[key: number]: string} = {
+        35: 'low',
+        75: 'medium',
+        90: 'high',
+        111: 'warning',
+        125: 'overamplified',
+    }
+
+    const volumeKey = nearest(
+        volume,
+        Object.keys(volumeLevel).map((volume) => parseInt(volume)),
+    )
+
+    return volumeLevel[volumeKey]
+}
+
 const Network = () => {
     const networkPrimary = bind(NetworkService, 'primary')
 
@@ -57,7 +74,6 @@ const Network = () => {
             setup={(self) => {
                 self.label = networkInfo.get().label
                 self.hook(networkInfo, (self, network) => {
-                    console.log(network.wifiStrength)
                     self.label = network.label
                 })
             }}
@@ -78,28 +94,20 @@ const Microphone = () => {
                     mute ? microphoneIcons.muted : microphoneIcons.default,
                 ),
             )}
-            className="microphone"
-            tooltipText={microphoneVolume.as(
-                (volume) => `Current microphone volume: ${volume}`,
+            className={bind(
+                Variable.derive(
+                    [microphoneVolume, microphoneMute],
+                    (volume, mute) => {
+                        return [
+                            'microphone',
+                            mute ? 'low' : getVolumeClass(volume),
+                        ].join(' ')
+                    },
+                ),
             )}
-            setup={(self) => {
-                self.toggleClassName('low', MicrophoneService.volume >= 15)
-                self.toggleClassName('medium', MicrophoneService.volume >= 45)
-                self.toggleClassName('high', MicrophoneService.volume >= 75)
-                self.toggleClassName('warning', MicrophoneService.volume >= 100)
-                self.toggleClassName(
-                    'overamplified',
-                    MicrophoneService.volume >= 125,
-                )
-
-                self.hook(microphoneVolume, (self, volume) => {
-                    self.toggleClassName('low', volume >= 0)
-                    self.toggleClassName('medium', volume >= 45)
-                    self.toggleClassName('high', volume >= 75)
-                    self.toggleClassName('warning', volume >= 100)
-                    self.toggleClassName('overamplified', volume >= 125)
-                })
-            }}
+            tooltipText={microphoneVolume.as(
+                (volume) => `Current microphone volume: ${volume}%`,
+            )}
         />
     )
 }
@@ -117,28 +125,20 @@ const Speaker = () => {
                     mute ? speakerIcons.muted : speakerIcons.default,
                 ),
             )}
-            className="speaker"
-            tooltipText={speakerVolume.as(
-                (volume) => `Current speaker volume: ${volume}`,
+            className={bind(
+                Variable.derive(
+                    [speakerVolume, speakerMute],
+                    (volume, mute) => {
+                        return [
+                            'microphone',
+                            mute ? 'low' : getVolumeClass(volume),
+                        ].join(' ')
+                    },
+                ),
             )}
-            setup={(self) => {
-                self.toggleClassName('low', SpeakerService.volume >= 15)
-                self.toggleClassName('medium', SpeakerService.volume >= 45)
-                self.toggleClassName('high', SpeakerService.volume >= 75)
-                self.toggleClassName('warning', SpeakerService.volume >= 100)
-                self.toggleClassName(
-                    'overamplified',
-                    SpeakerService.volume >= 125,
-                )
-
-                self.hook(speakerVolume, (self, volume) => {
-                    self.toggleClassName('low', volume >= 0)
-                    self.toggleClassName('medium', volume >= 45)
-                    self.toggleClassName('high', volume >= 75)
-                    self.toggleClassName('warning', volume >= 100)
-                    self.toggleClassName('overamplified', volume >= 125)
-                })
-            }}
+            tooltipText={speakerVolume.as(
+                (volume) => `Current speaker volume: ${volume}%`,
+            )}
         />
     )
 }

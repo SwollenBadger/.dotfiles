@@ -1,3 +1,16 @@
+- name: installing pipewire
+  become: true
+  community.general.pacman:
+      update_cache: true
+      state: 'latest'
+      name:
+          - pipewire
+          - pipewire-audio
+          - pipewire-pulse
+          - pipewire-jack
+          - pipewire-alsa
+          - wireplumber
+
 - name: Installing common package
   become: true
   community.general.pacman:
@@ -24,5 +37,6 @@
           - mpv
           - kitty
           - android-file-transfer
+          - pavucontrol
   tags:
       - apps

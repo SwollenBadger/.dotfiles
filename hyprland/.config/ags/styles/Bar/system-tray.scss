@@ -2,7 +2,7 @@
     background-color: $charcoal;
     border-radius: $bar-inner-height;
     min-height: $bar-inner-height;
-    padding: $bar-padding * 1.2;
+    padding: calc($bar-padding * 1.3) calc($bar-padding * 1.5);
 
     .toggle,
     .item {

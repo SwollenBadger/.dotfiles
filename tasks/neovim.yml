@@ -53,7 +53,7 @@
 
 - name: Downloading neovim config repository
   ansible.builtin.git:
-      repo: 'http://github.com/akbarsanihasan/nvimrc.git'
+      repo: 'http://github.com/SwollenBadger/nvimrc.git'
       dest: '{{ playbook_dir }}/Nvimrc'
       recursive: true
       accept_hostkey: true

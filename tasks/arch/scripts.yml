@@ -1,12 +1,9 @@
 - name: Download forbidden installsripts
   ansible.builtin.git:
-      repo: 'git@github.com:akbarsanihasan/{{ item.repo }}.git'
-      dest: '{{ HOME }}/.forbidden/{{ item.name }}'
+      repo: 'git@github.com:SwollenBadger/.forbidden.git'
+      dest: '{{ HOME }}/.forbidden'
       depth: 1
       update: false
       accept_hostkey: true
-  loop:
-      - {repo: forbidden-archscripts, name: archscritps}
-      - {repo: forbidden-archinstall, name: archinstall}
   tags:
       - personal

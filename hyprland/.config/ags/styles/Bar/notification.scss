@@ -2,16 +2,13 @@
     background-color: $charcoal;
     border-radius: $bar-inner-height;
     min-height: $bar-inner-height;
-    padding: $bar-padding * 1.3;
+    padding: $bar-padding calc($bar-padding * 1.5);
 
     label {
         min-width: $bar-inner-height;
         min-height: $bar-inner-height;
         border-radius: $bar-inner-height;
-
-        &.icon {
-            font-size: calc($font-size/1.1);
-        }
+        font-size: calc($font-size/1.1);
     }
 
     &:hover {
