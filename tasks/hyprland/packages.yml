@@ -46,5 +46,6 @@
           - ffmpegthumbnailer
           - tumbler
           - webp-pixbuf-loader
+          - network-manager-applet
   tags:
       - hyprland
