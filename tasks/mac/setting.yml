@@ -173,13 +173,13 @@
       - domain: 'NSGlobalDomain'
         key: 'KeyRepeat'
         type: 'integer'
-        value: 1
+        value: 2
         state: 'present'
 
       - domain: 'NSGlobalDomain'
         key: 'InitialKeyRepeat'
         type: 'integer'
-        value: 10
+        value: 15
         state: 'present'
 
       - domain: 'com.microsoft.VSCode'
