@@ -5,6 +5,7 @@ import Variable from '../../../../../../../../usr/share/astal/gjs/variable'
 import ToggleButton from '../../components/ToggleButton'
 import {nearest} from '../../lib/helpers'
 import {microphoneIcons, networkIcons, speakerIcons} from '../../lib/Variables'
+import {menuState} from './Menu'
 
 const NetworkService = AstalNetwork.get_default()
 const WifiService = NetworkService.wifi

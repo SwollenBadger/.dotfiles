@@ -58,7 +58,7 @@
       gsettings set org.gnome.desktop.interface color-scheme prefer-dark 
       gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
       gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
-      gsettings set org.gnome.desktop.interface font-name 'Inter Display Semi-Bold 14'
-      gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 14'
+      gsettings set org.gnome.desktop.interface font-name 'Inter Display Semi-Bold 12'
+      gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font 12'
   tags:
       - hyprland

@@ -26,7 +26,7 @@
   <property name="last-location-bar" type="string" value="ThunarLocationEntry"/>
   <property name="last-restore-tabs" type="bool" value="true"/>
   <property name="last-tabs-left" type="array">
-    <value type="string" value="file:///home/akbarsanihasan"/>
+    <value type="string" value="file:////home/akbarsanihasan/Downloads"/>
   </property>
   <property name="last-focused-tab-left" type="int" value="0"/>
   <property name="last-focused-tab-right" type="int" value="0"/>

@@ -84,11 +84,11 @@
   ansible.builtin.shell: |
       eval $(go env)
 
-      cd {{ HOME }}/ags/src
+      cd {{ HOME }}/ags
       go install
       mv $GOPATH/bin/ags /usr/bin/ags
   tags:
       - hyprland
 
 - name: Generate types ags
-  ansible.builtin.shell: ags --generate
+  ansible.builtin.shell: ags types

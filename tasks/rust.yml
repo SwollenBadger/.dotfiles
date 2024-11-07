@@ -1,5 +1,5 @@
 - name: Installing rustup rust toolchain
-  ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --quiet -y
+  ansible.builtin.shell: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --quiet -y || true
   tags:
       - rust
       - neovim
