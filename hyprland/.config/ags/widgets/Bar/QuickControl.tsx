@@ -5,7 +5,6 @@ import Variable from '../../../../../../../../usr/share/astal/gjs/variable'
 import ToggleButton from '../../components/ToggleButton'
 import {nearest} from '../../lib/helpers'
 import {microphoneIcons, networkIcons, speakerIcons} from '../../lib/Variables'
-import {menuState} from './Menu'
 
 const NetworkService = AstalNetwork.get_default()
 const WifiService = NetworkService.wifi
@@ -20,11 +19,11 @@ function getWifiIcons(wifiStrength: number, wifiState: number): string {
         .map((key) => parseInt(key))
     const networkIconKey = nearest(wifiStrength, networkIconsKeys)
 
-    if (wifiState <= AstalNetwork.DeviceState.UNAVAILABLE) {
+    if (wifiState <= AstalNetwork.State.DISCONNECTED) {
         return networkIcons.wireless.disconnected
     }
 
-    if (wifiState <= AstalNetwork.DeviceState.SECONDARIES) {
+    if (wifiState <= AstalNetwork.State.CONNECTING) {
         return networkIcons.wireless.connecting
     }
 
@@ -50,7 +49,7 @@ function getVolumeClass(volume: number): string {
 
 const Wifi = () => {
     const wifiStrength = bind(WifiService, 'strength')
-    const wifiState = bind(WifiService.device, 'state')
+    const wifiState = bind(WifiService, 'state')
 
     return (
         <label
@@ -58,7 +57,7 @@ const Wifi = () => {
                 Variable.derive(
                     [wifiStrength, wifiState],
                     (wifi_strength, wifi_state) =>
-                        getWifiIcons(wifi_strength, wifi_state / 10),
+                        getWifiIcons(wifi_strength, wifi_state),
                 ),
             )}
         />
