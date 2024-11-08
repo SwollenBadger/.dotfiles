@@ -130,7 +130,7 @@ const SystemInfo = () => {
 
                     for (const i in memory) {
                         memory_info.push(
-                            `${i[0].toUpperCase() + i.slice(1)}: ${Math.floor(memory[i] / 1024 ** 3)} Gib`,
+                            `${i[0].toUpperCase() + i.slice(1)}: ${Math.floor(memory[i] / 1024 ** 3)} GIB`,
                         )
                     }
 
