@@ -33,10 +33,15 @@ const Battery = () => {
             setup={(self) => {
                 self.toggleClassName('warning', percentage.get() <= 30)
                 self.toggleClassName('critical', percentage.get() <= 15)
+                self.toggleClassName('charging', charging.get())
 
-                self.hook(percentage, (_, p) => {
-                    self.toggleClassName('warning', p <= 30)
-                    self.toggleClassName('critical', p <= 15)
+                self.hook(percentage, (_, percentage) => {
+                    self.toggleClassName('warning', percentage <= 30)
+                    self.toggleClassName('critical', percentage <= 15)
+                })
+
+                self.hook(charging, (_, charging) => {
+                    self.toggleClassName('charging', charging)
                 })
             }}
             visible={visible}

@@ -7,14 +7,14 @@
         animation-direction: alternate;
     }
 
-    &.warning {
+    &.warning:not(.charging) {
         label {
             animation-name: warning;
             animation-duration: 0.6s;
         }
     }
 
-    &.critical {
+    &.critical:not(.charging) {
         label {
             animation-name: critical;
             animation-duration: 0.3s;
