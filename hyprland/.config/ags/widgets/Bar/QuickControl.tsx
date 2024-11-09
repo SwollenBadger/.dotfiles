@@ -67,7 +67,7 @@ const Wifi = () => {
 const Wired = () => {
     return (
         <label
-            label={bind(WiredService.device, 'state').as((wired_state) => {
+            label={bind(WiredService, 'state').as((wired_state) => {
                 return wired_state <= AstalNetwork.DeviceState.DISCONNECTED
                     ? networkIcons.disconnected
                     : networkIcons.wired
