@@ -19,11 +19,11 @@ function getWifiIcons(wifiStrength: number, wifiState: number): string {
         .map((key) => parseInt(key))
     const networkIconKey = nearest(wifiStrength, networkIconsKeys)
 
-    if (wifiState <= AstalNetwork.State.DISCONNECTED) {
+    if (wifiState <= AstalNetwork.DeviceState.DISCONNECTED) {
         return networkIcons.wireless.disconnected
     }
 
-    if (wifiState <= AstalNetwork.State.CONNECTING) {
+    if (wifiState <= AstalNetwork.DeviceState.PREPARE) {
         return networkIcons.wireless.connecting
     }
 
@@ -68,7 +68,7 @@ const Wired = () => {
     return (
         <label
             label={bind(WiredService.device, 'state').as((wired_state) => {
-                return wired_state / 10 <= AstalNetwork.DeviceState.UNAVAILABLE
+                return wired_state <= AstalNetwork.DeviceState.DISCONNECTED
                     ? networkIcons.disconnected
                     : networkIcons.wired
             })}

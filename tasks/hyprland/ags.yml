@@ -91,4 +91,11 @@
       - hyprland
 
 - name: Generate types ags
-  ansible.builtin.shell: ags types
+  ansible.builtin.shell: |
+      export PREFIX={{ HOME }}/.node/n
+      export N_PREFIX={{ HOME }}/.node
+      export N_CACHE_PREFIX={{ HOME }}/.node
+      export PATH={{ HOME }}/.node/n/bin:$PATH
+      export PATH={{ HOME }}/.node/bin:$PATH
+
+      ags types

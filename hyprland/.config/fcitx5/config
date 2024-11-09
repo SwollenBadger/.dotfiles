@@ -5,7 +5,7 @@ EnumerateWithTriggerKeys=True
 EnumerateSkipFirst=False
 
 [Hotkey/TriggerKeys]
-0=Control+space
+0=Super+slash
 1=Zenkaku_Hankaku
 2=Hangul
 
@@ -19,7 +19,7 @@ EnumerateSkipFirst=False
 0=Control+bracketleft
 
 [Hotkey/EnumerateGroupForwardKeys]
-0=Super+space
+0=Super+question
 
 [Hotkey/EnumerateGroupBackwardKeys]
 0=Shift+Super+space
