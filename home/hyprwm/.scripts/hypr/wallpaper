@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+MODE=$1
+WALLPAPER=$2
+WPP_PATH=""
+WPP_DEFAULT_DIR=$HOME/.wallpaper
+check_hyprpaper=$(pgrep -x hyprpaper)
+
+if [[ -z "$check_hyprpaper" ]]; then
+    hyprpaper &
+fi
+
+function apply(){
+    local monitors=($(hyprctl monitors -j | jq -r ".[].name"))
+
+    if [[ $(dirname $WALLPAPER) == $WPP_DEFAULT_DIR ]];then
+        WPP_PATH="$WPP_DEFAULT_DIR/$(basename $WPP_PATH)"
+    fi
+
+    if [[ "$WALLPAPER" =~ ^(morning|default|evening|night)$ ]]; then
+        echo -e "$WALLPAPER"
+        echo -e "$WPP_PATH"
+
+        WPP_PATH="$WPP_DEFAULT_DIR/$WALLPAPER"
+    fi
+
+
+    if [[ $WALLPAPER == '' ]]; then
+        case $(date +%H) in
+            05 | 06 | 07 | 08 | 09 | 10) # Morning
+                WPP_PATH="$WPP_DEFAULT_DIR/morning"
+                ;;
+            11 | 12 | 13 | 14 | 15 | 16) # Day
+                WPP_PATH="$WPP_DEFAULT_DIR/default"
+                ;;
+            17 | 18 | 19 | 20 | 21 | 22) # Evening
+                WPP_PATH="$WPP_DEFAULT_DIR/evening"
+                ;;
+            23 | 00 | 01 | 02 | 03 | 04) # Night
+                WPP_PATH="$WPP_DEFAULT_DIR/night"
+                ;;
+        esac
+    fi
+
+    for t in ${monitors[@]}; do
+        if [[ -d $WPP_PATH ]]; then
+            IMG="$(fd -t f . --full-path $WPP_PATH | shuf -n1)"
+        else
+            IMG=$WPP_PATH
+            pkill -fic "bash $HOME/.bin/hypr_wallpaper daemon"
+        fi
+
+        hyprctl hyprpaper preload $IMG
+        hyprctl hyprpaper wallpaper "$t,$IMG"
+
+        sleep 0.1
+        hyprctl hyprpaper unload $IMG
+    done
+}
+
+function daemon(){
+    local check_daemon=$(pgrep -fic "bash $HOME/.scripts/hypr_wallpaper daemon")
+
+    if (( "$check_daemon" <= "1" )); then
+        while true; do
+            echo $WALLPAPER
+            echo $WPP_PATH
+
+            apply
+            sleep 599
+        done
+    fi
+}
+
+case $MODE in
+    "apply") apply ;;
+    "daemon") daemon ;;
+esac
