@@ -3,6 +3,8 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 
+bindkey -e
+
 autoload -Uz compinit
 compinit
 

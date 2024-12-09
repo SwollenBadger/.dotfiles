@@ -13,6 +13,7 @@
   ansible.builtin.shell: |
       export PATH={{ HOME }}/.cargo/bin:$PATH
       mkdir -p {{ XDG_CONFIG_HOME }}/anyrun/plugins
+
       cd {{ HOME }}/anyrun
       cargo build --release
       cargo install --path anyrun/

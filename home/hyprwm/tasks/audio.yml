@@ -29,7 +29,7 @@
 - name: Building noise supressor for voice
   ansible.builtin.shell: |
       cd {{ HOME }}/nsfv
-      cmake -Bbuild -H. -GNinja -DCMAKE_BUILD_TYPE=Release
+      cmake -Bbuild -H. -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX:PATH=/usr
       cmake --build ./build --config Release --target all -j$(nproc)
   tags:
       - audio

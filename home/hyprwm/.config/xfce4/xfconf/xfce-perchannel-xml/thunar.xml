@@ -3,7 +3,7 @@
 <channel name="thunar" version="1.0">
   <property name="last-show-hidden" type="bool" value="false"/>
   <property name="misc-confirm-close-multiple-tabs" type="bool" value="false"/>
-  <property name="last-view" type="string" value="ThunarDetailsView"/>
+  <property name="last-view" type="string" value="ThunarIconView"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_75_PERCENT"/>
   <property name="last-window-maximized" type="bool" value="true"/>
   <property name="last-separator-position" type="int" value="194"/>
@@ -41,7 +41,7 @@
   <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
   <property name="misc-text-beside-icons" type="bool" value="false"/>
   <property name="misc-full-path-in-tab-title" type="bool" value="false"/>
-  <property name="last-details-view-column-widths" type="string" value="50,993,117,50,50,50,50,50,494,50,50,50,50,214"/>
+  <property name="last-details-view-column-widths" type="string" value="50,993,168,50,50,50,127,50,494,152,50,50,50,214"/>
   <property name="last-splitview-separator-position" type="int" value="865"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
 </channel>

@@ -182,7 +182,7 @@ const NetworkToggle = () => {
                             <label
                                 maxWidthChars={8}
                                 truncate
-                                label="Disconnected"
+                                label="Unavailabe"
                             />
                         ) : (
                             bind(NetworkService, 'primary').as((primary) => {
@@ -193,7 +193,7 @@ const NetworkToggle = () => {
                                             maxWidthChars={0}
                                             label={
                                                 !WifiSsid
-                                                    ? 'Disconnected'
+                                                    ? 'Unavailabe'
                                                     : WifiSsid
                                             }
                                         />
@@ -207,7 +207,7 @@ const NetworkToggle = () => {
                                             maxWidthChars={0}
                                             label={
                                                 !WiredDevice
-                                                    ? 'Disconnected'
+                                                    ? 'Unavailable'
                                                     : WiredDevice
                                             }
                                         />

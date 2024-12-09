@@ -49,7 +49,7 @@
       accept_hostkey: true
       depth: 1
   loop:
-      - {repo: 'neovim/neovim', dest: '{{ HOME }}/neovim'}
+      - {repo: 'neovim/neovim', dest: '{{ HOME }}/neovim', version: 'stable'}
       - {
             repo: 'SwollenBadger/nvimrc',
             dest: '{{ playbook_dir }}/Nvimrc',
