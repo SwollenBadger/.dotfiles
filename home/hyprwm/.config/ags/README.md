@@ -1,1 +1,1 @@
-### Absolute shit show on this one, hated it
+### Readability of the code are doom from the start, nothing serious

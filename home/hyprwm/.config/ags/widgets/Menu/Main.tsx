@@ -89,6 +89,7 @@ export default function Menu() {
                                     '-c',
                                     'kitty sh -c "fastfetch;exec $SHELL"',
                                 ])
+                                setMenuState(false)
                             }}
                         />
                     </box>
