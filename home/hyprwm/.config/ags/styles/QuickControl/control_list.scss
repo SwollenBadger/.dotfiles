@@ -33,12 +33,23 @@
                 margin-right: $gap-xs;
             }
 
+            box {
+                label {
+                    &:nth-child(3),
+                    &:nth-child(4) {
+                        margin-left: $gap-s;
+                    }
+                }
+            }
+
             &:hover,
             &.active {
                 background-color: $lavender;
 
-                label {
-                    color: $crust;
+                box {
+                    label {
+                        color: $crust;
+                    }
                 }
             }
         }

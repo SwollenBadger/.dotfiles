@@ -81,7 +81,16 @@ export default function Menu() {
                     vertical={true}
                 >
                     <box vertical={true} className="menu_group">
-                        <MenuItem label="About This PC" />
+                        <MenuItem
+                            label="About This PC"
+                            onClick={() => {
+                                execAsync([
+                                    'bash',
+                                    '-c',
+                                    'kitty sh -c "fastfetch;exec $SHELL"',
+                                ])
+                            }}
+                        />
                     </box>
                     <Line />
                     <box vertical={true} className="menu_group">

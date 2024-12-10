@@ -89,7 +89,7 @@
   ansible.builtin.shell: |
       cd {{ HOME }}/neovim
       make deps
-      make CMAKE_BUILD_TYPE=RelWithDebInfo
+      make CMAKE_BUILD_TYPE=Release
   tags:
       - neovim
       - neovim_standalone
