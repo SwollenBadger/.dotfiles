@@ -6,15 +6,14 @@ import {
     Variable,
 } from '../../../../../../../../../usr/share/astal/gjs'
 import ToggleButton from '../../components/ToggleButton'
-import {MicrophoneIcon, SpeakerIcon} from './Toggle'
 import {quickControlState, setQuickControlState} from './Main'
+import {MicrophoneIcon} from './Toggle'
 
 let WireplumberService: AstalWp.Wp | null
 
 try {
     WireplumberService = AstalWp.get_default()
 } catch (_) {
-    console.log('catched')
     WireplumberService = null
 }
 
@@ -22,10 +21,15 @@ const DefaultMicrophone =
     WireplumberService && WireplumberService.defaultMicrophone
 const Audio = WireplumberService && WireplumberService.audio
 
-const revealSpeaker = Variable(false)
+const revealMicrophone = Variable(false)
 const overAmplified = Variable(false)
 
 const Microphone = () => {
+    quickControlState.subscribe((v) => {
+        if (!v) {
+            revealMicrophone.set(false)
+        }
+    })
     return (
         <box vertical className="brightness_control slider_control">
             <eventbox
@@ -33,7 +37,7 @@ const Microphone = () => {
                 hexpand
                 onClick={(_, e) => {
                     if (e.button === Astal.MouseButton.PRIMARY) {
-                        revealSpeaker.set(!revealSpeaker.get())
+                        revealMicrophone.set(!revealMicrophone.get())
                     }
                 }}
             >
@@ -117,29 +121,25 @@ const Microphone = () => {
                 </box>
             </eventbox>
             <revealer
-                revealChild={bind(
-                    Variable.derive(
-                        [quickControlState(), revealSpeaker()],
-                        (qcState, raState) => {
-                            return qcState && raState
-                        },
-                    ),
-                )}
+                revealChild={revealMicrophone()}
                 transitionType={Gtk.RevealerTransitionType.SLIDE_UP}
             >
                 {Audio && (
-                    <box vertical className="control_sublist speaker">
-                        {bind(Audio, 'speakers').as((speakers) => {
-                            return speakers.map((speaker) => {
+                    <box vertical className="control_sublist microphone">
+                        {bind(Audio, 'microphones').as((microphones) => {
+                            return microphones.map((microphone) => {
                                 return (
                                     <ToggleButton
-                                        state={bind(speaker, 'isDefault')}
+                                        state={bind(microphone, 'isDefault')}
                                         onClick={() =>
-                                            speaker.set_is_default(true)
+                                            microphone.set_is_default(true)
                                         }
                                     >
                                         <label
-                                            label={bind(speaker, 'description')}
+                                            label={bind(
+                                                microphone,
+                                                'description',
+                                            )}
                                             truncate
                                         />
                                     </ToggleButton>

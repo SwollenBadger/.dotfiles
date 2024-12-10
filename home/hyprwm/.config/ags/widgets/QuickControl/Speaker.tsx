@@ -24,6 +24,11 @@ const revealSpeaker = Variable(false)
 const overAmplified = Variable(false)
 
 const Speaker = () => {
+    quickControlState.subscribe((v) => {
+        if (!v) {
+            revealSpeaker.set(false)
+        }
+    })
     return (
         <box vertical className="brightness_control slider_control">
             <eventbox

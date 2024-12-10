@@ -8,7 +8,7 @@ const MenuToggle = () => {
             state={menuState()}
             className="menu_toggle"
         >
-            
+           󰼁 
         </ToggleButton>
     )
 }

@@ -51,7 +51,7 @@
   loop:
       - {repo: 'neovim/neovim', dest: '{{ HOME }}/neovim', version: 'stable'}
       - {
-            repo: 'SwollenBadger/nvimrc',
+            repo: 'immoralJellyfish/nvimrc',
             dest: '{{ playbook_dir }}/Nvimrc',
             version: 'main',
         }
